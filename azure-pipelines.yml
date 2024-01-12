@@ -16,15 +16,6 @@ stages:
   - job: A
     displayName: Upload
     steps:
-    - task: ServiceNow-DevOps-Config-Agent-Upload-Config@1
-      name: componentUpload
+    - task: ServiceNow-DevOps-Server-Change-Acceleration@1
       inputs:
-        connectedServiceName: 'MyServiceNowInstance'
-        applicationName: 'PaymentDemo'
-        uploadTarget: 'component'
-        configFile: 'k8s/helm/values.yml'
-        namePath: 'processor-api-v1.0'
-        dataFormat: 'yaml'
-        autoValidate: true
-        autoCommit: true
-        convertPath: true
+            connectedServiceName: 'dev211826-kavyapersonal devops project1-ServiceNow DevOps Service Connection'
