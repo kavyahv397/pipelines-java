@@ -7,7 +7,7 @@ trigger:
 - main
     
 
-
+-stage:Deploy
 pool: server
 steps:
 - task: ServiceNow-DevOps-Server-Change-Acceleration@1
