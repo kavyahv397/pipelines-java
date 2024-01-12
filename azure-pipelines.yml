@@ -12,8 +12,7 @@ stages:
   displayName: Upload Configuration Data
   pool: server
   jobs:
-  - job: A
-    displayName: Upload
+  - job: changerequestjob
     steps:
     - task: ServiceNow-DevOps-Server-Change-Acceleration@1
       inputs:
