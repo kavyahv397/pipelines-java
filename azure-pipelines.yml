@@ -8,7 +8,7 @@ trigger:
     include:
     - none
 stages:
-- stage: One
+- stage: 'DEPLOY'
   displayName: Upload Configuration Data
   pool: server
   jobs:
