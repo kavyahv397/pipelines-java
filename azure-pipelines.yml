@@ -22,7 +22,8 @@ steps:
     goals: 'package'
     
 
--stage: ChangeRequest
+-stage: Deploy
+jobs:
     -job: 'changerequestjob'
      pool: server
 steps:
