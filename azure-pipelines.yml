@@ -3,30 +3,25 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
-trigger:
-- main
-    
 
 stages:
-  - stage: 'Build'
-step:
-jobs:
--job:Build1
-- task: ServiceNow-DevOps-Agent-Job-Notification@1
-  inputs:
-    connectedServiceName: 'dev211826-kavyapersonal devops project1-ServiceNow DevOps Service Connection'
-    Phase: 'STARTED'
 
-- task: ServiceNow-DevOps-Agent-Job-Notification@1
-  inputs:
-    connectedServiceName: 'Devopssnowconnection1'
-    Phase: 'COMPLETED'
-    
-    -stage: 'DEPLOY'
-    jobs:
-    -job:Deploy1
-    pool:server
-    steps
+- stage: Deploy
+  jobs:
+  - job: startDeployment
+    steps:
     - task: ServiceNow-DevOps-Server-Change-Acceleration@1
       inputs:
         connectedServiceName: 'dev211826-kavyapersonal devops project1-ServiceNow DevOps Service Connection'
+        changeRequestDetails: |
+          {
+              "setCloseCode" : true,
+              "autoCloseChange" : true,
+              "attributes": {
+                "requested_by": {
+                  "name": "test user"
+                },
+                "start_date": "2024-01-05 08:00:00",
+                "end_date": "2024-01-08 08:00:00"
+              }
+            }
