@@ -7,7 +7,6 @@ trigger:
 - main
     
 
-pool: server
 stages:
   - stage: 'Build'
 
@@ -23,3 +22,12 @@ steps:
   inputs:
     connectedServiceName: 'Devopssnowconnection1'
     Phase: 'COMPLETED'
+    
+    -stage: 'DEPLOY'
+    jobs:
+    -job:Deploy1
+    pool:server
+    steps
+    - task: ServiceNow-DevOps-Server-Change-Acceleration@1
+      inputs:
+        connectedServiceName: 'dev211826-kavyapersonal devops project1-ServiceNow DevOps Service Connection'
