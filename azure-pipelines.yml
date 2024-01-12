@@ -4,16 +4,27 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- main
-
+  branches:
+    include:
+    - none
 stages:
-
-- stage: Deploy
+- stage: One
+  displayName: Upload Configuration Data
+  pool:
+    vmImage: ubuntu-latest
   jobs:
-  - job: startDeployment
-pool: server
-  steps:
-    - task: ServiceNow-DevOps-Server-Change-Acceleration@1
+  - job: A
+    displayName: Upload
+    steps:
+    - task: ServiceNow-DevOps-Config-Agent-Upload-Config@1
+      name: componentUpload
       inputs:
-        connectedServiceName: 'dev211826-kavyapersonal devops project1-ServiceNow DevOps Service Connection'
-        
+        connectedServiceName: 'MyServiceNowInstance'
+        applicationName: 'PaymentDemo'
+        uploadTarget: 'component'
+        configFile: 'k8s/helm/values.yml'
+        namePath: 'processor-api-v1.0'
+        dataFormat: 'yaml'
+        autoValidate: true
+        autoCommit: true
+        convertPath: true
