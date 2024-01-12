@@ -9,10 +9,9 @@ trigger:
 
 stages:
   - stage: 'Build'
-
+step:
 jobs:
 -job:Build1
-  steps:
 - task: ServiceNow-DevOps-Agent-Job-Notification@1
   inputs:
     connectedServiceName: 'dev211826-kavyapersonal devops project1-ServiceNow DevOps Service Connection'
