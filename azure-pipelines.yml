@@ -16,4 +16,4 @@ stages:
     steps:
     - task: ServiceNow-DevOps-Server-Change-Acceleration@1
       inputs:
-            connectedServiceName: 'dev211826-kavyapersonal devops project1-ServiceNow DevOps Service Connection'
+            connectedServiceName: 'dev211826-kavyapersonal devops project1-ServiceNow DevOps Service Connection' 
