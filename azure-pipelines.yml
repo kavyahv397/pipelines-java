@@ -10,8 +10,7 @@ trigger:
 stages:
 - stage: One
   displayName: Upload Configuration Data
-  pool:
-    vmImage: ubuntu-latest
+  pool: server
   jobs:
   - job: A
     displayName: Upload
