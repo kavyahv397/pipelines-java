@@ -9,8 +9,8 @@ stages:
 - stage: Deploy
   jobs:
   - job: startDeployment
-    pool:server
-  steps:
+pool: server
+steps:
     - task: ServiceNow-DevOps-Server-Change-Acceleration@1
       inputs:
         connectedServiceName: 'dev211826-kavyapersonal devops project1-ServiceNow DevOps Service Connection'
